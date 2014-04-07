@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddContactIdToAddresses	db/migrate/20140407044633_add_contact_id_to_addresses.rb	/^class AddContactIdToAddresses < ActiveRecord::Migration$/;"	c
+AddIndexToName	db/migrate/20140407180038_add_index_to_name.rb	/^class AddIndexToName < ActiveRecord::Migration$/;"	c
+Address	app/models/address.rb	/^class Address < ActiveRecord::Base$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:ContactManager
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Contact	app/models/contact.rb	/^class Contact < ActiveRecord::Base$/;"	c
+ContactManager	config/application.rb	/^module ContactManager$/;"	m
+ContactSI	app/service_interfaces/contact_si.rb	/^class ContactSI$/;"	c
+ContactsController	app/controllers/contacts_controller.rb	/^class ContactsController < ApplicationController$/;"	c
+ContactsHelper	app/helpers/contacts_helper.rb	/^module ContactsHelper$/;"	m
+CreateAddresses	db/migrate/20140407032956_create_addresses.rb	/^class CreateAddresses < ActiveRecord::Migration$/;"	c
+CreateContacts	db/migrate/20140407032857_create_contacts.rb	/^class CreateContacts < ActiveRecord::Migration$/;"	c
+LoadContactsFromFile	lib/load_contacts_from_file.rb	/^class LoadContactsFromFile$/;"	c
+address_params	app/controllers/contacts_controller.rb	/^  def address_params$/;"	f	class:ContactsController.create
+avatar	app/models/contact.rb	/^  def avatar(size = 20)$/;"	f	class:Contact
+build_addresses	app/service_interfaces/contact_si.rb	/^  def build_addresses(v)$/;"	f	class:ContactSI
+build_contacts_from_json	lib/load_contacts_from_file.rb	/^    def build_contacts_from_json(data)$/;"	f	class:LoadContactsFromFile
+change	db/migrate/20140407032857_create_contacts.rb	/^  def change$/;"	f	class:CreateContacts
+change	db/migrate/20140407032956_create_addresses.rb	/^  def change$/;"	f	class:CreateAddresses
+change	db/migrate/20140407044633_add_contact_id_to_addresses.rb	/^  def change$/;"	f	class:AddContactIdToAddresses
+change	db/migrate/20140407180038_add_index_to_name.rb	/^  def change$/;"	f	class:AddIndexToName
+contact_params	app/controllers/contacts_controller.rb	/^  def contact_params$/;"	f	class:ContactsController.create
+create	app/controllers/contacts_controller.rb	/^  def create$/;"	f	class:ContactsController
+destroy	app/controllers/contacts_controller.rb	/^  def destroy$/;"	f	class:ContactsController.create
+edit	app/controllers/contacts_controller.rb	/^  def edit$/;"	f	class:ContactsController
+index	app/controllers/contacts_controller.rb	/^  def index$/;"	f	class:ContactsController
+initialize	app/service_interfaces/contact_si.rb	/^  def initialize(&block)$/;"	f	class:ContactSI
+load	lib/load_contacts_from_file.rb	/^    def load(path)$/;"	f	class:LoadContactsFromFile
+new	app/controllers/contacts_controller.rb	/^  def new$/;"	f	class:ContactsController
+save	app/service_interfaces/contact_si.rb	/^  def save$/;"	f	class:ContactSI
+save_contacts	lib/load_contacts_from_file.rb	/^    def save_contacts(contacts)$/;"	f	class:LoadContactsFromFile
+set_addresses=	app/service_interfaces/contact_si.rb	/^  def set_addresses=(v)$/;"	f	class:ContactSI
+set_contact	app/controllers/contacts_controller.rb	/^  def set_contact$/;"	f	class:ContactsController.create
+set_contact=	app/service_interfaces/contact_si.rb	/^  def set_contact=(v)$/;"	f	class:ContactSI
+show	app/controllers/contacts_controller.rb	/^  def show$/;"	f	class:ContactsController
+update	app/controllers/contacts_controller.rb	/^  def update$/;"	f	class:ContactsController.create

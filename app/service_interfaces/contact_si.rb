@@ -8,7 +8,7 @@ class ContactSI
   end
 
   def set_contact=(v)
-    self.contact = Contact.new(v.except(:address))
+    self.contact = Contact.new(v.except('address'))
 
     # importing from json file - otherwise its a rails form
     if v.has_key?('birthday')
