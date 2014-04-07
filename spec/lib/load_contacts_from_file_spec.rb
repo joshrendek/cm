@@ -1,5 +1,6 @@
 require 'litespec_helper'
 require './app/models/contact'
+require './app/models/address'
 require './lib/load_contacts_from_file'
 
 describe LoadContactsFromFile do
@@ -26,10 +27,11 @@ describe LoadContactsFromFile do
   end
 
   context "valid contacts" do
-    before { Contact.destroy_all }
+    before { Contact.destroy_all; Address.destroy_all }
     it "should load contacts and save them" do
       contacts = LoadContactsFromFile.load('spec/test_files/articulate-data.json')
       Contact.count.should eq(3)
+      Address.count.should eq(3)
     end
   end
 end
