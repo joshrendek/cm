@@ -1,0 +1,200 @@
+/ Latest compiled and minified CSS
+%link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", rel: "stylesheet"}/
+/ Optional theme
+%link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css", rel: "stylesheet"}/
+/ Latest compiled and minified JavaScript
+%script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+
+/ Header
+#top-nav.navbar.navbar-inverse.navbar-static-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.icon-toggle
+      %a.navbar-brand{href: "#"} Contact Manager
+/ /Header
+/ Main
+.container
+  .row
+    .col-md-3
+      / Left column
+      %a{href: "#"}
+        %strong
+          %i.glyphicon.glyphicon-wrench
+          Tools
+      %hr/
+      %ul.list-unstyled
+        %li.nav-header
+          %a{"data-target" => "#userMenu", "data-toggle" => "collapse", href: "#"}
+            %h5
+              Settings
+              %i.glyphicon.glyphicon-chevron-down
+          %ul#userMenu.list-unstyled.collapse.in
+            %li.active
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-home
+                Home
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-envelope
+                Messages
+                %span.badge.badge-info 4
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-cog
+                Options
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-comment
+                Shoutbox
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-user
+                Staff List
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-flag
+                Transactions
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-exclamation-sign
+                Rules
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-off
+                Logout
+        %li.nav-header
+          %a{"data-target" => "#menu2", "data-toggle" => "collapse", href: "#"}
+            %h5
+              Reports
+              %i.glyphicon.glyphicon-chevron-right
+          %ul#menu2.list-unstyled.collapse
+            %li
+              %a{href: "#"} Information & Stats
+            %li
+              %a{href: "#"} Views
+            %li
+              %a{href: "#"} Requests
+            %li
+              %a{href: "#"} Timetable
+            %li
+              %a{href: "#"} Alerts
+        %li.nav-header
+          %a{"data-target" => "#menu3", "data-toggle" => "collapse", href: "#"}
+            %h5
+              Social Media
+              %i.glyphicon.glyphicon-chevron-right
+          %ul#menu3.list-unstyled.collapse
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-circle
+                Facebook
+            %li
+              %a{href: "#"}
+                %i.glyphicon.glyphicon-circle
+                Twitter
+      %hr/
+      %a{href: "#"}
+        %strong
+          %i.glyphicon.glyphicon-link
+          Resources
+      %hr/
+      %ul.nav.nav-pills.nav-stacked
+        %li.nav-header
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-list
+            Layouts & Templates
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-briefcase
+            Toolbox
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-link
+            Widgets
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-list-alt
+            Reports
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-book
+            Pages
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-star
+            Social Media
+      %hr/
+      %ul.nav.nav-stacked
+        %li.active
+          %a{href: "http://bootply.com", target: "ext", title: "The Bootstrap Playground"} Playground
+        %li
+          %a{href: "/tagged/bootstrap-3"} Bootstrap 3
+        %li
+          %a{href: "/61518", title: "Bootstrap 3 Panel"} Panels
+        %li
+          %a{href: "/61521", title: "Bootstrap 3 Icons"} Glyphicons
+        %li
+          %a{href: "/61523", title: "Bootstrap 3 ListGroup"} List Groups
+        %li
+          %a{href: "#"} GitHub
+        %li
+          %a{href: "/61518", title: "Bootstrap 3 Slider"} Carousel
+        %li
+          %a{href: "/62603"} Layout
+      %hr/
+    / /col-3
+    .col-md-9
+      / column 2
+      %ul.list-inline.pull-right
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-cog
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %i.glyphicon.glyphicon-comment
+            %span.count 3
+          %ul.dropdown-menu{role: "menu"}
+            %li
+              %a{href: "#"} 1. Is there a way..
+            %li
+              %a{href: "#"} 2. Hello, admin. I would..
+            %li
+              %a{href: "#"}
+                %strong All messages
+        %li
+          %a{href: "#"}
+            %i.glyphicon.glyphicon-user
+        %li
+          %a{"data-toggle" => "modal", href: "#addWidgetModal", title: "Add Widget"}
+            %span.glyphicon.glyphicon-plus-sign
+            Add Widget
+      %a{href: "#"}
+        %strong
+          %i.glyphicon.glyphicon-dashboard
+          My Dashboard
+      %hr/
+      .row
+        / center left
+        .col-md-12
+          = yield
+/ /Main
+%footer.text-center
+  This Bootstrap 3 dashboard layout is compliments of
+  %a{href: "http://www.bootply.com/85850"}
+    %strong Bootply.com
+#addWidgetModal.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title Add Widget
+      .modal-body
+        %p Add a widget stuff here..
+      .modal-footer
+        %a.btn{"data-dismiss" => "modal", href: "#"} Close
+        %a.btn.btn-primary{href: "#"} Save changes
+    / /.modal-content
+  / /.modal-dalog
+/ /.modal
