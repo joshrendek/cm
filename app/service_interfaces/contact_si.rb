@@ -8,7 +8,6 @@ class ContactSI
   end
 
   def set_contact=(v)
-    binding.pry
     self.contact = Contact.new(v.except(:address))
 
     # importing from json file - otherwise its a rails form
