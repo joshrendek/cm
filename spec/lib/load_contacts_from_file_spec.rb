@@ -1,6 +1,7 @@
 require 'litespec_helper'
 require './app/models/contact'
 require './app/models/address'
+require './app/service_interfaces/contact_si'
 require './lib/load_contacts_from_file'
 
 describe LoadContactsFromFile do

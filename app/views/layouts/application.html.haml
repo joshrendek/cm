@@ -1,77 +1,64 @@
-/ Latest compiled and minified CSS
-%link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", rel: "stylesheet"}/
-/ Optional theme
-%link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css", rel: "stylesheet"}/
-/ Latest compiled and minified JavaScript
-%script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+!!!
+%html{lang: "en", xmlns: "http://www.w3.org/1999/xhtml", "xmlns:fb" => "http://www.facebook.com/2008/fbml"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    = csrf_meta_tags
+    = javascript_include_tag :application
+  %body
+    / Latest compiled and minified CSS
+    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", rel: "stylesheet"}/
+    / Optional theme
+    %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css", rel: "stylesheet"}/
+    / Latest compiled and minified JavaScript
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
 
-/ Header
-#top-nav.navbar.navbar-inverse.navbar-static-top
-  .container
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-        %span.icon-toggle
-      %a.navbar-brand{href: "/"} Contact Manager
-/ /Header
-/ Main
-.container
-  .row
-    .col-md-3
-      / Left column
-      %a{href: "#{new_contact_path}"}
-        %strong.btn.btn-success.col-md-12
-          %i.glyphicon.glyphicon-plus-sign
-          New Contact
-      %hr/
-      %hr/
-      %ul.nav.nav-pills.nav-stacked
-        %li.nav-header
-        %li
-          %a{href: "#"}
-            %i.glyphicon.glyphicon-list
-            Layouts & Templates
-        %li
-          %a{href: "#"}
-            %i.glyphicon.glyphicon-briefcase
-            Toolbox
-        %li
-          %a{href: "#"}
-            %i.glyphicon.glyphicon-link
-            Widgets
-        %li
-          %a{href: "#"}
-            %i.glyphicon.glyphicon-list-alt
-            Reports
-        %li
-          %a{href: "#"}
-            %i.glyphicon.glyphicon-book
-            Pages
-        %li
-          %a{href: "#"}
-            %i.glyphicon.glyphicon-star
-            Social Media
-    / /col-3
-    .col-md-9
+    / Header
+    #top-nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.icon-toggle
+          %a.navbar-brand{href: "/"} Contact Manager
+    / /Header
+    / Main
+    .container
       .row
-        / center left
-        .col-md-12
-          = yield
-/ /Main
-%footer.text-center
-  This Bootstrap 3 dashboard layout is compliments of
-  %a{href: "http://www.bootply.com/85850"}
-    %strong Bootply.com
-#addWidgetModal.modal
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4.modal-title Add Widget
-      .modal-body
-        %p Add a widget stuff here..
-      .modal-footer
-        %a.btn{"data-dismiss" => "modal", href: "#"} Close
-        %a.btn.btn-primary{href: "#"} Save changes
-    / /.modal-content
-  / /.modal-dalog
-/ /.modal
+        .col-md-3
+          / Left column
+          %a{href: "#{new_contact_path}"}
+            %strong.btn.btn-success.col-md-12
+              %i.glyphicon.glyphicon-plus-sign
+              New Contact
+          %hr/
+          %hr/
+          %ul.nav.nav-pills.nav-stacked
+            %li.nav-header
+            - Contact.all.each do |contact|
+              %li
+                %a{href: "#{contact_path(contact)}"}
+                  %img{src: "#{contact.avatar}"}
+                  = contact.name
+
+        / /col-3
+        .col-md-9
+          .row
+            / center left
+            .col-md-12
+              = yield
+    / /Main
+    %footer.text-center
+    #addWidgetModal.modal
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4.modal-title Add Widget
+          .modal-body
+            %p Add a widget stuff here..
+          .modal-footer
+            %a.btn{"data-dismiss" => "modal", href: "#"} Close
+            %a.btn.btn-primary{href: "#"} Save changes
+        / /.modal-content
+      / /.modal-dalog
+    / /.modal

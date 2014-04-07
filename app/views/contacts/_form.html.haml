@@ -6,16 +6,25 @@
         - @contact.errors.full_messages.each do |msg|
           %li= msg
   .row
+    .col-md-12
+      .form-group
+        = f.text_field :name, class: 'form-control input-lg', placeholder: 'Full Name'
+  %hr
+  .row
     .col-md-3
       %center
-        %img{src: "http://placehold.it/150x150"}
+        - if @contact.try(:email)
+          %img{src: "#{@contact.avatar(150)}"}
+        - else
+          %img{src: "http://placehold.it/150x150"}
     .col-md-9
 
       .row
         .col-md-4
           .form-group
-            = f.label :name
-            = f.text_field :name, class: 'form-control'
+            = f.label :sex
+            %br
+            = f.select :sex, options_for_select(['male', 'female']), class: 'form-control'
 
         .col-md-4
           .form-group
@@ -26,25 +35,26 @@
             = f.label :birthday
             %br
             = f.date_select :birthday, class: 'form-control'
+      - fa = @contact.addresses.first
       = fields_for :address do |a|
         .row
           .col-md-12
             .form-group
               = a.label :street
-              = a.text_field :street, class: 'form-control'
+              = a.text_field :street, value: fa.try(:street), class: 'form-control'
         .row
           .col-md-4
             .form-group
               = a.label :city
-              = a.text_field :city, class: 'form-control'
+              = a.text_field :city, value: fa.try(:city), class: 'form-control'
           .col-md-4
             .form-group
               = a.label :state
-              = a.text_field :state, class: 'form-control'
+              = a.text_field :state, value: fa.try(:state), class: 'form-control'
           .col-md-4
             .form-group
-              = a.label :zip
-              = a.text_field :zip, class: 'form-control'
+              = a.label :postcode
+              = a.text_field :postcode, value: fa.try(:postcode), class: 'form-control'
 
 
       .row

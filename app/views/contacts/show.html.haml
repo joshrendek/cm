@@ -1,24 +1,68 @@
-%p#notice= notice
+.row
+  .col-md-12
+    .form-group
+      %h2
+        =@contact.name
+        %a{href: "#{edit_contact_path(@contact)}"}
+          %i.glyphicon.glyphicon-pencil
+%hr
+.row
+  .col-md-3
+    %center
+      %img{src: "#{@contact.avatar(150)}"}
+  .col-md-9
 
-%p
-  %b Name:
-  = @contact.name
-%p
-  %b Sex:
-  = @contact.sex
-%p
-  %b Age:
-  = @contact.age
-%p
-  %b Birthday:
-  = @contact.birthday
-%p
-  %b Phone:
-  = @contact.phone
-%p
-  %b Email:
-  = @contact.email
+    .row
+      .col-md-4
+        .form-group
+          = label_tag :sex
+          %br
+          = @contact.sex
 
-= link_to 'Edit', edit_contact_path(@contact)
-\|
-= link_to 'Back', contacts_path
+      .col-md-4
+        .form-group
+          = label_tag :age
+          %br
+          = @contact.age
+      .col-md-4
+        .form-group
+          = label_tag :birthday
+          %br
+          = @contact.birthday
+    - @contact.addresses.each do |address|
+      .row
+        .col-md-12
+          .form-group
+            = label_tag :street
+            %br
+            = address.street
+      .row
+        .col-md-4
+          .form-group
+            = label_tag :city
+            %br
+            = address.city
+        .col-md-4
+          .form-group
+            = label_tag :state
+            %br
+            = address.state
+        .col-md-4
+          .form-group
+            = label_tag :postcode
+            %br
+            = address.postcode
+
+
+    .row
+      .col-md-6
+        .form-group
+          = label_tag :phone
+          %br
+          = @contact.phone
+      .col-md-6
+        .form-group
+          = label_tag :email
+          %br
+          = @contact.email
+

@@ -12,22 +12,6 @@ class LoadContactsFromFile
       save_contacts(contacts)
     end
 
-    # Builds up the address objects for use in a Contact object
-    #
-    # @param [Hash|Array] address_obj can accept either an array of addresses or a single address hash
-    def build_addresses(address_obj)
-      if address_obj.kind_of? Hash
-        return [
-          Address.new(
-            street: address_obj['street'], city: address_obj['city'],
-            state: address_obj['state'], postcode: address_obj['postcode']
-          )
-        ]
-      elsif address_obj.kind_of? Array
-        # todo: handle multiple addresses later
-      end
-    end
-
     # Takes the json data from the loaded file and parses through it
     #
     # @param [Hash] data the json parse results of the hash - expected to have fields:
@@ -35,11 +19,10 @@ class LoadContactsFromFile
     def build_contacts_from_json(data)
       ret = []
       data.each do |c|
-        date = DateTime.strptime(c['birthday'], "%m/%d/%Y")
-        contact = Contact.new(name: c['name'], sex: c['sex'], age: c['age'],
-                           birthday: date, phone: c['phone'],
-                           email: c['email'],
-                           addresses: build_addresses(c['address']))
+        contact = ContactSI.new do |csi|
+          csi.set_contact = c
+          csi.set_addresses = c['address']
+        end
         ret << contact
       end
       ret
