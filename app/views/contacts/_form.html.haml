@@ -14,7 +14,7 @@
     .col-md-3
       %center
         - if @contact.try(:email)
-          %img{src: "#{@contact.avatar(150)}"}
+          %img{src: "#{@contact.avatar(150)}", style: "width: 120px;"}
         - else
           %img{src: "http://placehold.it/150x150"}
     .col-md-9
@@ -58,14 +58,18 @@
 
 
       .row
-        .col-md-6
+        .col-md-4
           .form-group
             = f.label :phone
             = f.text_field :phone, class: 'form-control'
-        .col-md-6
+        .col-md-4
           .form-group
             = f.label :email
             = f.text_field :email, class: 'form-control'
+        .col-md-4
+          .form-group
+            = f.label :avatar_url
+            = f.text_field :avatar_url, class: 'form-control'
 
       .row
         .col-md-6

@@ -37,7 +37,7 @@
             - Contact.all.each do |contact|
               %li
                 %a{href: "#{contact_path(contact)}"}
-                  %img{src: "#{contact.avatar}"}
+                %img{src: "#{contact.avatar}", style: "width: 20px"}
                   = contact.name
 
         / /col-3
